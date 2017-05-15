@@ -1,0 +1,7 @@
+Started GET "/" for 127.0.0.1 at 2017-05-15 15:18:13 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 580ms (Views: 568.7ms | ActiveRecord: 0.0ms)
+
+
