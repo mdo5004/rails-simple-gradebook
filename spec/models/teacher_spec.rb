@@ -24,21 +24,21 @@ RSpec.describe Teacher, type: :model do
     
     it "has many classes" do
         teacher = Teacher.create(email:"test@example.com", password:"password")
-        klass = Klass.create(name:"new class",teacher_id: teacher.id)
-        expect(teacher.klasses.first).to equal(klass)
+        klass = Klass.create(name:"new class",teacher_id: teacher.id, description: "A new class")
+        expect(teacher.klasses.first).to eq(klass)
     end
     it "has many students through classes" do
         teacher = Teacher.create(email:"test@example.com", password:"password")
-        klass = Klass.create(name:"new class",teacher_id: teacher.id)
+        klass = Klass.create(name:"new class",teacher_id: teacher.id, description: "A new class")
         s1 = Student.create(name:"Student McStudent")
         klass.students << s1
-        expect(teacher.students.first).to equal(s1)
+        expect(teacher.students.first).to eq(s1)
     end
     it "has many assignments through classes" do
         teacher = Teacher.create(email:"test@example.com", password:"password")
-        klass = Klass.create(name:"new class",teacher_id: teacher.id)
-        a = Assignment.create(klass_id: klass.id)
-        expect(teacher.assignments.first).to equal(a)
+        klass = Klass.create(name:"new class",teacher_id: teacher.id, description: "A new class")
+        a = Assignment.create(name:"New assignment",klass_id: klass.id)
+        expect(teacher.assignments.first).to eq(a)
     end
     
 end
